@@ -10,5 +10,21 @@ generator client {
 
 datasource db {
   provider = "mysql"
+  // provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+model Issue {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255) // varchar(191) default and it override using @db.VarChar()
+  discription String   @db.Text
+  status      Status   @default(OPEN)
+  createdAt   DateTime @default(now())
+  updateAt    DateTime @updatedAt
+}
+
+enum Status {
+  OPEN
+  IN_PROGRESS
+  CLOSED
 }
