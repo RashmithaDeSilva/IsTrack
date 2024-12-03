@@ -2,7 +2,7 @@ import "@radix-ui/themes/styles.css";
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Theme } from "@radix-ui/themes";
+import { Theme, ThemePanel } from "@radix-ui/themes";
 import NavBar from "./NavBar";
 
 const geistSans = localFont({
@@ -28,10 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Theme>
+      <body className={`${ geistSans.variable } ${ geistMono.variable } antialiased`}>
+        <Theme accentColor="violet">
           <NavBar />
           <main className="px-10">{ children }</main>
+           {/* ThemePanel can be use to custom theme */}
+          {/* <ThemePanel /> */}
         </Theme>
       </body>
     </html>
