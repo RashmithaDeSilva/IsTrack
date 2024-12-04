@@ -17,7 +17,7 @@ datasource db {
 model Issue {
   id          Int      @id @default(autoincrement())
   title       String   @db.VarChar(255) // varchar(191) default and it override using @db.VarChar()
-  discription String   @db.Text
+  description String   @db.Text
   status      Status   @default(OPEN)
   createdAt   DateTime @default(now())
   updateAt    DateTime @updatedAt

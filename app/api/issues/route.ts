@@ -6,7 +6,7 @@ import prisma from "@/prisma/client";
 // Create zod validation schema for validation
 const createIssueSchema = z.object({
     title: z.string().min(1).max(255),
-    discription: z.string()
+    description: z.string()
 });
 
 export async function POST(request: NextRequest) {
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     const newIssue = await prisma.issue.create({
         data: {
             title: body.title,
-            discription: body.discription
+            description: body.description
         }
     });
 
